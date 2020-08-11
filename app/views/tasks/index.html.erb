@@ -1,0 +1,16 @@
+<h1>My Tasks</h1>
+
+<ul>
+  <% @tasks.each do |t| %>
+    <li>
+      <%list = t.title%>
+      <%= link_to "#{list}", task_path(t.id) %>
+      <button><%= link_to "edit a task", task_edit_path(t.id) %></button>
+      <button><%= link_to'delete task', task_delete_path(t.id), method: :delete, data: { confirm: "Are you sure?" }  %></button>
+    </li>
+  <% end %>
+</ul>
+
+
+<button><%=link_to "add a new task", tasks_new_path %></button>
+
